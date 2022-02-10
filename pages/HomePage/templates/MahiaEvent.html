@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Ahim Gdolim Event
+{% endblock %}
+
+{% block event_block %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for ms in messages %}
+                <h4>{{ ms }}</h4>
+            {% endfor %}
+        {% endif %}
+{% endwith %}
+
+    <div id="EventText1" class="EventsText_container">
+        <h1> Beit Miha fundraising event </h1>
+        <textarea id="mahiaEvent" class="TextAreas">We believe that every infant, including deaf and hard-of-hearing, has the right to develop his and her communication skills and thrive both academically and personally. Founded in 1953, Beit Micha’s mission is to ensure that every infant with hearing loss be fully integrated by first grade: listening, speaking and thriving like any other six-year-old.
+
+Beit Miha invites you to a fundraising event for deaf and hard of hearing children with a stand-up show by Adir Miller.
+All proceeds for the rehabilitation of the speech and language of the children of Beit Miha.
+To reserve tickets:
+Start date:
+Monday, 22 March 2022 19:30
+Address:
+Performing Arts Hall, Jabotinsky 15, Herzliya
+Beit Miha invites you to an annual fundraising event for deaf and
+hard of hearing children.
+Proceeds from the event will be dedicated to assisting in the
+rehabilitation of the hearing of the children of Beit Miha.
+In the program:
+19:30 Reception and light refreshments
+20:30 Congratulations and Beit Miha show
+21:00 A great stand-up show by Miller (45 minutes)
+Looking forward to seeing you,
+Beit Miha staff
+        </textarea>
+    </div>
+
+    <div class="BottomAreaContainer">
+        <div class="bottomAreaGroup">
+            <button id="GoBackButton" class="buttons" onclick="window.location.href='/';">Go Back</button>
+            {%  if session['user_id'] %}
+                <form action="/check_par_Mahia" method="post">
+                    <button id="RSVP" class="buttons" name="MahiaID" value=4>RSVP</button>
+                </form>
+            {% else %}
+                <p>You have to log in before RSVPing</p>
+            {% endif %}
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS2.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

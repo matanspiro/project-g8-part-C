@@ -1,0 +1,38 @@
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="TopAreaContainer">
+
+        <div id="Donate" class="topAreaGroup">
+            <button class="topButton" onclick="window.location.href='/Products'">Donate</button>
+        </div>
+
+        <div id="Logo" class="topAreaGroup">
+            <img src="/static/media/Logo.jpeg" id="Logo">
+        </div>
+
+        <div>
+            <button class="topButton" onclick="window.location.href='/PersonalInfo'">Profile</button>
+        </div>
+
+        <div id="LogIn" class="topAreaGroup">
+            {% if session.user_name %}
+                <form action="/Logout" method="post" >
+                    <button type="submit" class="topButton">Log Out</button>
+                </form>
+            {% else %}
+                <button class="topButton" onclick="window.location.href='/Login'">Log In</button>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+    <div id="NavBar">
+        <a class="NavLink" href="/">Home</a>
+        <a class="NavLink" href="/AboutUs">About Us</a>
+        <a class="NavLink" href="/Products">Our Packages</a>
+        <a class="NavLink" href="/OurPartners">Our Partners</a>
+        <a class="NavLink" href="/ContactUs">Contact Us</a>
+    </div>
+</header>

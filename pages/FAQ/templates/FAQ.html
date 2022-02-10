@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+
+{% block title%}
+FAQ
+{% endblock %}
+
+{% block main %}
+   <h1 class="faq-heading">FAQ'S</h1>
+    <button class="questions">What is "GiveByClick"?</button>
+    <div class="answers">
+      <p>GiveByClick was established out of an ideology to create a better world and help a population that needs help,
+          in a unique way and by actively using a donation platform.GiveByClick is a non-profit organization,
+          our main goal is to collect donations.</p>
+    </div>
+
+    <button class="questions">How does it work?</button>
+    <div class="answers">
+      <p>The organization collects the donations and transfers them to relevant organizations that distribute the
+          products collected to the needy throughout the country. GiveByClick is in constant interaction with
+          organizations around the country for assistance.</p>
+    </div>
+
+    <button class="questions">What can be donated?</button>
+    <div class="answers">
+        <p>You can choose from three types of donations:</p>
+        <p> 1. Donate a sum of money of your choice.</p>
+        <p> 2. Food packages.</p>
+        <p> 3. Clothes and products for the home.</p>
+    </div>
+
+    <button class="questions">Why are we doing this?</button>
+    <div class="answers">
+        <p> Poverty is an important issue that touches the hearts of many of us.
+            We are interested in giving the platform to help anyone who needs help,
+            out of a desire to live in a better world.</p>
+    </div>
+
+    <button class="questions">What are the events advertised on the site?</button>
+    <div class="answers">
+        <p> We invite you to take part in fundraising events that take place from time to time.
+            In this way you can enjoy different and varied events and also donate to the needy.</p>
+    </div>
+
+    <button class="questions">What are the types of payment through which I can donate?</button>
+    <div class="answers">
+        <p> Donations can only be made by credit card.</p>
+    </div>
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_css2.css') }}">
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

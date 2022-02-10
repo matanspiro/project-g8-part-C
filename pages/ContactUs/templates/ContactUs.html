@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Contact Us
+{% endblock %}
+
+{% block main %}
+<script src="https://kit.fontawesome.com/e0c5b4131b.js" crossorigin="anonymous"></script>
+<section id="contact" class="section" >
+    <br><br><br>
+    <div id =contactUsDiv >
+        <h3 id="contactUsTitle"> Contact Us </h3>
+        <div  id ="contactInfo" class="container">
+            <br><br>
+            <i class="fas fa-map-marker-alt"> Ben-Gurion University, Beer-Sheva, Israel</i> <br><br>
+            <i class="fas fa-at"> GiveByClick@gmail.com </i><br><br>
+            <i class="fas fa-phone"> 08-8112395 </i><br><br>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</section>
+{% endblock %}
+
+{% block page_body_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/website_css1.css') }}">
+{% endblock %}
+
+{% block page_body_js %}
+<script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

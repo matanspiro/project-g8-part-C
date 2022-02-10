@@ -1,0 +1,295 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Products
+{% endblock %}
+
+{% block main %}
+<main>
+	<h2 id= packageTitle>Our Packages</h2>
+	<h3 >
+		<div>FOOD</div>
+		<div>Clothes & Home</div>
+		<div>Cash Donation</div>
+	</h3>
+	<div class="images_buttons">
+		<a id="F_product1" onclick="F_product1()" style="background-image:url({{ url_for('Products.static', filename='media/foodbasket.jpg') }})"
+			alt="F_product1">
+			<span>Food Basket </span>
+		</a>
+
+		<a id="CH_product1" onclick="CH_product1()" style="background-image:url({{ url_for('Products.static', filename='media/PillowsAndBlankets2.jfif') }})"
+			alt="CH_product1">
+			<span>Pillows & Blankets</span>
+		</a>
+
+		<a  id="Cash1" onclick="Cash1()" style="background-image:url({{ url_for('Products.static', filename='media/CashPic.jpg')}})"
+			alt="Cash1">
+			<span>100 NIS</span>
+		</a>
+
+		<a id="F_product2" onclick="F_product2()" style="background-image:url({{ url_for('Products.static', filename='media/warmfood.jpg')}})"
+			alt="F_product2">
+			<span>Hot Food</span>
+		</a>
+
+		<a  id="CH_product2" onclick="CH_product2()" style="background-image:url({{ url_for('Products.static', filename='media/PotsAndPans.jfif')}})"
+			alt="CH_product2">
+			<span>Pots & Pans</span>
+		</a>
+
+		<a  id="Cash2" onclick="Cash2()" style="background-image:url({{ url_for('Products.static', filename='media/CashPic.jpg')}})"
+			alt="Cash2">
+			<span>200 NIS</span>
+		</a>
+
+		<a id="F_product3" onclick="F_product3()" style="background-image:url({{ url_for('Products.static', filename='media/candis.png')}})"
+			alt="F_product3">
+			<span>Candies</span>
+		</a>
+
+		<a id="CH_product3" onclick="CH_product3()" style="background-image:url({{ url_for('Products.static', filename='media/Pjs.png')}})"
+			alt="CH_product3">
+			<span>Pajamas</span>
+		</a>
+
+		<a  id="Cash3" onclick="Cash3()" style="background-image:url({{ url_for('Products.static', filename='media/CashPic.jpg')}})"
+			alt="Cash3">
+			<span>Your choice</span>
+		</a>
+
+	</div>
+    <!-- id01 - Food Basket -->
+	<div id="id01" class="modal">
+		<form action= "/Products/FoodBasket" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img1" src="../static/media/foodbasket.jpg" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum", name="amountNum1" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id02 - Pillows & Blankets -->
+	<div id="id02" class="modal">
+		<form action= "/Products/PillowsAndBlankets" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img2" src="" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target2>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum" name="amountNum2" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id02').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id03 - Hot Food -->
+	<div id="id03" class="modal">
+		<form action="/Products/HotFood" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img3" src="" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target3>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum" name="amountNum3" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id03').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id04 - Pots & Pans -->
+	<div id="id04" class="modal">
+		<form action="/Products/PotsAndPans" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img4" src="" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target4>
+					</p>
+                     {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum" name="amountNum4" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id04').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id05 - Candies -->
+	<div id="id05" class="modal">
+		<form action="/Products/Candies" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img5" src="" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target5>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum" name="amountNum5" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id05').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id06 - Pj's -->
+	<div id="id06" class="modal">
+		<form action="/Products/Pajamas" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+				 <img id="modal_img6" src="" alt="Avatar" class="avatar">
+			</div>
+				<div class="container">
+					<p id = target6>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountNum">Quantity:</label>
+                        <input  id="amountNum" name="amountNum6" type="number" min="0">
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id06').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- id07 - 100 NIS -->
+	<div id="id07" class="modal">
+		<form action="/Products/100NIS" method ="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+				<div class="container">
+					<p id = target7>
+					</p>
+                    {% if session.user_name %}
+					    <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id07').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+    <!-- id08 - 200 NIS -->
+	<div id="id08" class="modal">
+		<form action="/Products/200NIS" method="get" class="form" class="modal-content animate" >
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+				<div class="container">
+					<p id = target8>
+					</p>
+                    {% if session.user_name %}
+					    <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id08').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- id09 - other price -->
+	<div id="id09" class="modal">
+		<form action="/Products/OtherPrice" method="get" class="form" class="modal-content animate">
+			<div class="imgcontainer">
+			  <span onclick="document.getElementById('id09').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+			</div>
+				<div class="container">
+					<p id = target9>
+					</p>
+                    {% if session.user_name %}
+                        <label for="amountOFcash">Amount:</label>
+                        <input  id="amountOFcash" name="amountOFcash" type="number" step="50" min="50" >
+                        <button class="modalbutton">Apply</button>
+                    {% else %}
+                        <h4> Please login before you can donate</h4>
+                    {% endif %}
+				</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id09').style.display='none'" class="modalbutton"  id="cancelbtn">Back</button>
+			</div>
+		</form>
+	</div>
+</main>
+
+
+	<p class = "footerProduct">
+    {% if session.user_name %}
+        {% if no_donations %}
+            <h3> Please choose products before you can move on</h3>
+        {% else %}
+            <a href="/Products/Proceed2Checkout"> <button id="checkOut_Button" onclick="goToCheckout()"> Proceed to checkout </button></a>
+            <a href="/Products/ResetChoices"> <button id="reset_Button" type="reset" onclick="alertResetChoices()"> Reset my choices</button></a>
+        {% endif %}
+    {% else %}
+        <h3> Please login before you can donate</h3>
+    {% endif %}
+	</p>
+
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS1.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

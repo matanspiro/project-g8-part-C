@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    GiveByClick
+{% endblock %}
+
+{% block main %}
+    <body>
+{#    <div class="eventFlexBox">#}
+{#        {% for event in events %}#}
+{#            <a href={{event.Action}}>#}
+{#                <div class="event">#}
+{#                    <img class="picture" src={{ event.Photo }}>#}
+{#                </div>#}
+{#            </a>#}
+{#        {% endfor %}#}
+{#    </div>#}
+
+    <div class="eventFlexBox">
+        <div class="event">
+            <a href="/MahiaEvent">
+                <img onclick="getText1()" src="/HomePage/media/mahiaChildren.jpeg" class="picture" id="4"> <!--mahiaChildren -->
+             </a>
+        </div>
+
+        <div class="event">
+            <a href="/AhimGdolimEvent">
+                <img src="/HomePage/media/Spectrum.jpeg" class="picture" id="3"> <!--Spectrum -->
+            </a>
+        </div>
+
+        <div class="event">
+             <a href="/SurvivorsEvent">
+                <img onclick="getText3()" src="/HomePage/media/Shiri.jpeg" class="picture" id="2"> <!--Shiri -->
+             </a>
+        </div>
+
+        <div class="event">
+            <a href="/LevinstheinEvent">
+                <img onclick="getText4()" src="/HomePage/media/Levinshtain.jpeg" class="picture" id="1"> <!--Levinshtain -->
+            </a>
+        </div>
+    </div>
+
+    {% block event_block %}
+
+    {% endblock %}
+    </body>
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS2.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Personal Information
+{% endblock %}
+
+{% block main %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for ms in messages %}
+                <h4>{{ ms }}</h4>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <section id="PersonalInfo" class="section">
+        <br><br><br>
+        <form action="/updateProfile" method="post" class="form" >
+            <h3> Profile Settings </h3>
+            <p class="question"> Edit Your Profile </p>
+            <div class="container">
+                <label for="RegName"><b class ="register">Full Name</b></label><br>
+                <input type="text" placeholder="Enter Name" name="RegName" id="RegName"> <br>
+                <label for="email"><b class ="register">Email</b></label><br>
+                <input type="email" placeholder="Enter Email" name="email" id="email"><br>
+                <label for="PhoneNum"><b class ="register">Phone Number</b></label><br>
+                <input type="tel" placeholder="Enter phone number" name="PhoneNum" id="PhoneNum" pattern="[0]{1}[5]{1}[0-9]{8}"> <br>
+                <label for="psw"><b class="register" >Password</b></label><br>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" onChange="onChange()" ><br>
+                <label  for="psw_repeat" ><b class="register">Confirm your password</b></label><br>
+                <input type="password" placeholder="Enter Password again" name="psw-repeat" id="psw_repeat" onChange="onChange()" ><br>
+                {%  if session['user_id'] %}
+                    <div class="clearfix">
+                        <button type="submit" class="signupbtn" >Update Profile</button>
+                    </div>
+                {% else %}
+                    <h4>Please login before you can update details</h4>
+                {% endif %}
+            </div>
+        </form>
+        <br>
+        <div class="form">
+            <form action="/checkIfRSVPed" method="post">
+                <h3> My Events </h3>
+                {%  if session['user_id'] %}
+                    <button type="submit" class="signupbtn" id="checkEventsBtn">Check Events</button>
+                {% else %}
+                    <h4>Please login before you can check your events</h4>
+                {% endif%}
+            </form>
+
+            {% if eventsData %}
+                <script>
+                    let element = document.getElementById("checkEventsBtn");
+                    element.setAttribute("hidden", "hidden");
+                </script>
+                <p class="question">
+                <div class="innerQuestion">
+                    {% for event in eventsData %}
+                        <form action="/unRSVP" method="post" style="display: inline">
+                            <div></div>
+                            {{ event.Event_name }}
+                            <button type="submit" class="signupbtn" name="EventID" value={{ event.Event_id }}>UnRSVP</button>
+                        </form>
+                    {% endfor %}
+                </div>
+                </p>
+            {% elif eventsData == [] %}
+                <p>No events have been booked yet</p>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+    </section>
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS1.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

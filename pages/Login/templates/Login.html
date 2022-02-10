@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Sign In
+{% endblock %}
+
+{% block main %}
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for ms in messages %}
+                    <h4>{{ ms }}</h4>
+                {% endfor %}
+            {% endif %}
+    {% endwith %}
+        <section id="login" class="section" >
+        <br><br><br>
+            <form action="/Connect" method="post" class="form" >
+                <h3 id="SignIn"> Sign In </h3>
+                <p class="question"> NEW? <a href="/Register" style="text-decoration:none" class="question"> Create an account</a> </p>
+                <div class="container">
+                    <label for="uname"><b class="register">Email </b></label> <br>
+                    <input type="email" placeholder="Enter your Email" name="user_name" id="uname" required><br>
+                    <label for="psw"><b class="register">Password</b></label><br>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required><br>
+                    <button type="submit">Sign In</button>
+                </div>
+            </form>
+            <br>
+            <br>
+            <br><br>
+        </section>
+
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS1.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}

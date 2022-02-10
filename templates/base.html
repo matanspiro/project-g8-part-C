@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%  block title %}{%  endblock %}</title>
+</head>
+<body>
+
+{% include  'header.html' %}
+
+{%  block main %} {% endblock %}
+
+{% block event_block %} {% endblock %}
+
+{% include 'footer.html' %}
+
+{% block page_body_css %} {% endblock %}
+
+{% block page_body_js %} {% endblock %}
+</body>
+</html>

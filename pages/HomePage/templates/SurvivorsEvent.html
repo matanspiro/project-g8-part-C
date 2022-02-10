@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Survivors Event
+{% endblock %}
+
+{% block event_block %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for ms in messages %}
+                <h4>{{ ms }}</h4>
+            {% endfor %}
+        {% endif %}
+{% endwith %}
+
+    <div id="EventText3" class="EventsText_container">
+        <h1> Fundraising event for Sexual Assault Survivors </h1>
+        <textarea id="survivors" class="TextAreas">
+The Center For sexual Assault Survivors  invites you to a fundraising event for children.
+To reserve tickets:
+Start date:
+Monday, 22 April 2022 19:30
+Address:
+Performing Arts Hall, Jabotinsky 15, Ramat Hasharon
+In the program:
+19:30 Reception and light refreshments
+21:00 Show
+Looking forward to seeing you,
+The Center's staff
+        </textarea>
+    </div>
+
+    <div class="BottomAreaContainer">
+        <div class="bottomAreaGroup">
+            <button id="GoBackButton" class="buttons" onclick="window.location.href='/';">Go Back</button>
+            {%  if session['user_id'] %}
+                <form action="/check_par_Survivors" method="post">
+                    <button id="RSVP" class="buttons" name="SurvivorsID" value=2>RSVP</button>
+                </form>
+            {% else %}
+                <p>You have to log in before RSVPing</p>
+            {% endif %}
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website_CSS2.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/webpage_JS.js') }}"></script>
+{% endblock %}
