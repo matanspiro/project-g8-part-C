@@ -89,8 +89,6 @@ VALUES (3,3, 'Ahim Gdolim fundraising event', 150,'2022-02-22 19:30');
 INSERT INTO web_project_g8.events (Event_id,Org_id, Event_name, Capacity, Event_date)
 VALUES (4,4, 'Beit Miha fundraising event', 250,'2022-03-22 19:30');
 
--- UPDATE events SET Capacity='1';
-
 -- Credit Cards Data
 INSERT INTO web_project_g8.credit_cards (CC_Number,User_id, CC_Holder_id, Expire_month, Expire_year, CVC)
 VALUES ('4443568234567890','7', '3116724389', 6,2026,'324');
