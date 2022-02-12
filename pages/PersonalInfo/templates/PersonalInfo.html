@@ -5,18 +5,21 @@
 {% endblock %}
 
 {% block main %}
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for ms in messages %}
-                <h4>{{ ms }}</h4>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+   {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for ms in messages %}
+                    <h4>{{ ms }}</h4>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
     <section id="PersonalInfo" class="section">
-        <br><br><br>
+    <br>
         <form action="/updateProfile" method="post" class="form" >
             <h3> Profile Settings </h3>
-            <p class="question"> Edit Your Profile </p>
+            <a  href="/wantToUpdate" class="question"> Edit Your Profile </a>
+        {% if wantToUpdateInfo %}
+            {%  if session['user_id'] %}
             <div class="container">
                 <label for="RegName"><b class ="register">Full Name</b></label><br>
                 <input type="text" placeholder="Enter Name" name="RegName" id="RegName"> <br>
@@ -28,14 +31,15 @@
                 <input type="password" placeholder="Enter Password" name="psw" id="psw" onChange="onChange()" ><br>
                 <label  for="psw_repeat" ><b class="register">Confirm your password</b></label><br>
                 <input type="password" placeholder="Enter Password again" name="psw-repeat" id="psw_repeat" onChange="onChange()" ><br>
-                {%  if session['user_id'] %}
+
                     <div class="clearfix">
                         <button type="submit" class="signupbtn" >Update Profile</button>
                     </div>
                 {% else %}
                     <h4>Please login before you can update details</h4>
-                {% endif %}
+        {% endif %}
             </div>
+        {% endif %}
         </form>
         <br>
         <div class="form">
@@ -68,9 +72,25 @@
                 <p>No events have been booked yet</p>
             {% endif %}
         </div>
+
+        <div class="form">
+            <form action="/checkOrders" method="post">
+                <h3> How Much You Donate </h3>
+                {%  if session['user_id'] %}
+                    <button type="submit" id="checkEventsBtn">Total Donation Amount</button>
+                {% else %}
+                    <h4>Please login before you can check your Donation Amount</h4>
+                {% endif%}
+            </form>
+
+            {% if amount %}
+                <p> Your total donation amount is {{amount}} NIS</p>
+            {% endif %}
+        </div>
         <br>
         <br>
         <br>
+
     </section>
 {% endblock %}
 

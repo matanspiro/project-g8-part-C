@@ -11,43 +11,32 @@ INSERT INTO users (Name, BirthDate, Email, Phone_number, Password)
 VALUES ('Shiran', '1996-10-02', 'Shiran@gmail.com', '0547561465','456');
 
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Food Basket', 'Food', '120', 'wine, rice, oil, sugar, flour, tuna, cans, pasta');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Food Basket', 'Food', '120', 'wine, rice, oil, sugar, flour, tuna, cans, pasta','../static/media/foodbasket.jpg');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Hot food', 'Food', '40', 'Single hot meal for one person');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Hot food', 'Food', '40', 'Single hot meal for one person','../static/media/warmfood.jpg');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Candies Basket', 'Food', '60', 'chocolates and snacks packages to put a big smile on thier face');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Candies Basket', 'Food', '60', 'chocolates and snacks packages to put a big smile on thier face','../static/media/candis.png');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Pillows and Blankets', 'Clothes and Home', '250', 'Pillow x 2 Blanket x 1');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Pillows and Blankets', 'Clothes and Home', '250', 'Pillow x 2 Blanket x 1','../static/media/PillowsAndBlankets2.jfif');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Pots and pans', 'Clothes and Home', '200', 'Pot x 3 sizes- S,M,L Pan x 2 size M');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Pots and pans', 'Clothes and Home', '200', 'Pot x 3 sizes- S,M,L Pan x 2 size M','../static/media/PotsAndPans.jfif');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('Pajamas', 'Clothes and Home', '100', '2 sets of pajamas ,(for male or female)');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('Pajamas', 'Clothes and Home', '100', '2 sets of pajamas ,(for male or female)','../static/media/Pjs.png');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('100 NIS', 'Cash Donation', '100', '10% will be added by the organization');
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('100 NIS', 'Cash Donation', '100', '10% will be added by the organization','../static/media/CashPic.jpg');
 
-INSERT INTO products  (Name, Category, Price, Description)
-VALUES ('Your Choice', 'Cash Donation','1', '10% will be added by the organization');
+INSERT INTO products  (Name, Category, Price, Description,Photo)
+VALUES ('Your Choice', 'Cash Donation','1', '10% will be added by the organization','../static/media/CashPic.jpg');
 
-INSERT INTO products (Name, Category, Price, Description)
-VALUES ('200 NIS', 'Cash Donation', '200', '10% will be added by the organization');
-
-UPDATE products set Photo='../static/media/candis.png' WHERE Product_id=3;
-UPDATE products set Photo='../static/media/CashPic.jpg' WHERE Product_id=7;
-UPDATE products set Photo='../static/media/CashPic.jpg' WHERE Product_id=8;
-UPDATE products set Photo='../static/media/CashPic.jpg' WHERE Product_id=9;
-UPDATE products set Photo='../static/media/foodbasket.jpg' WHERE Product_id=1;
-UPDATE products set Photo='../static/media/PillowsAndBlankets2.jfif' WHERE Product_id=4;
-UPDATE products set Photo='../static/media/Pjs.png' WHERE Product_id=6;
-UPDATE products set Photo='../static/media/PotsAndPans.jfif' WHERE Product_id=5;
-UPDATE products set Photo='../static/media/warmfood.jpg' WHERE Product_id=2;
-
+INSERT INTO products (Name, Category, Price, Description,Photo)
+VALUES ('200 NIS', 'Cash Donation', '200', '10% will be added by the organization','../static/media/CashPic.jpg');
 
 INSERT INTO organizations (Name, Description)
 VALUES ('Levinshtein Hospital', 'Hospital in Israel');

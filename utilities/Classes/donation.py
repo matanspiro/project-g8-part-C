@@ -28,6 +28,20 @@ class donation:
         else:
             return False
 
+    def donations_history(self, user_id):
+        query = "SELECT * FROM web_project_g8.donations WHERE Ordered=1 AND User_id=%s;" % (user_id)
+        answer = dbManager.fetch(query)
+        if answer:
+            return True
+        else:
+            return False
+
+    def user_total_donation(self, user_id):
+        query = "SELECT (SUM(d.Quantity * p.Price)) as Total FROM web_project_g8.users as u JOIN web_project_g8.donations as d ON u.User_id=d.User_id JOIN web_project_g8.products as p ON p.Product_id = d.Product_id WHERE u.User_id = '%s' AND d.Ordered=1 " % (
+            user_id)
+        totalDonation = dbManager.fetch(query)
+        return totalDonation[0][0]
+
     def open_donations_by_product(self, user_id, product_id):
         query = "SELECT * FROM web_project_g8.donations WHERE Ordered=0 AND User_id='%s' AND Product_id ='%s';" % (user_id, product_id)
         answer = dbManager.fetch(query)

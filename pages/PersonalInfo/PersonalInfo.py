@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, sessio
 
 from utilities.Classes.eventPar import eventPar
 from utilities.Classes.user import User
+from utilities.Classes.donation import donation
 
 PersonalInfo = Blueprint('PersonalInfo', __name__, static_folder='static',
                          static_url_path='/PersonalInfo', template_folder='templates')
@@ -64,3 +65,20 @@ def unRSVP_func():
     else:
         flash("Failed to unsubscribed from event")
         return redirect('/PersonalInfo')
+
+
+@PersonalInfo.route('/wantToUpdate', methods=['get'])
+def wantToUpdate():
+    return render_template('PersonalInfo.html', wantToUpdateInfo=True)
+
+
+@PersonalInfo.route('/checkOrders', methods=['post'])
+def checkOrders_func():
+    Donation = donation('a', 'a', 'a', 0)
+    user_id = session['user_id']
+    usersDonations = Donation.donations_history(user_id)
+    if usersDonations:
+        total=Donation.user_total_donation(user_id)
+        return render_template('PersonalInfo.html', amount=total)
+    flash("No donations received yet")
+    return render_template('PersonalInfo.html')
