@@ -2,7 +2,7 @@ create schema web_project_g8;
 
 use web_project_g8;
 
-DROP TABLE Users;
+#DROP TABLE Users;
 CREATE TABLE Users(
   User_id int auto_increment primary key,
   Name varchar(120),
@@ -12,7 +12,7 @@ CREATE TABLE Users(
   Password varchar(255)
 );
 
-DROP TABLE Products;
+#DROP TABLE Products;
 CREATE TABLE Products(
   Product_id int auto_increment primary key,
   Name varchar(120),
@@ -22,14 +22,14 @@ CREATE TABLE Products(
   Photo varchar(255)
 );
 
-DROP TABLE Organizations;
+#DROP TABLE Organizations;
 CREATE TABLE Organizations (
   Org_id int auto_increment primary key,
   Name varchar(120),
   Description varchar(500)
 );
 
-DROP TABLE Donations;
+#DROP TABLE Donations;
 CREATE TABLE Donations (
   Donation_id int auto_increment ,
   Product_id int,
@@ -44,7 +44,7 @@ CREATE TABLE Donations (
 );
 
 
-DROP TABLE Credit_Cards;
+#DROP TABLE Credit_Cards;
 CREATE TABLE Credit_Cards (
   CC_Number varchar(25),
   User_id int,
@@ -57,7 +57,7 @@ CREATE TABLE Credit_Cards (
   constraint fk_users_CC foreign key (User_id) references users (User_id)
 );
 
-DROP Table Events;
+#DROP Table Events;
 CREATE TABLE Events (
   Event_id int auto_increment primary key,
   Org_id int,
@@ -69,7 +69,7 @@ CREATE TABLE Events (
 );
 
 
-DROP TABLE Event_Participants;
+#DROP TABLE Event_Participants;
 CREATE TABLE Event_Participants (
   Event_id int,
   User_id int,

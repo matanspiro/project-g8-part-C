@@ -89,7 +89,7 @@ VALUES (3,3, 'Ahim Gdolim fundraising event', 150,'2022-02-22 19:30');
 INSERT INTO web_project_g8.events (Event_id,Org_id, Event_name, Capacity, Event_date)
 VALUES (4,4, 'Beit Miha fundraising event', 250,'2022-03-22 19:30');
 
---UPDATE events SET Capacity='1'
+-- UPDATE events SET Capacity='1';
 
 -- Credit Cards Data
 INSERT INTO web_project_g8.credit_cards (CC_Number,User_id, CC_Holder_id, Expire_month, Expire_year, CVC)
@@ -144,7 +144,7 @@ VALUES (24,6,8, '2022-02-12 17:01:28',1,1);
 INSERT INTO web_project_g8.donations (Donation_id,Product_id, User_id, Donation_DT, Quantity, Ordered)
 VALUES (25,4,8, '2022-02-12 17:01:37',1,1);
 
---Event Participants Data
+-- Event Participants Data
 INSERT INTO web_project_g8.event_participants (Event_id,User_id, Create_date)
 VALUES (1,10,'2022-02-12 15:17:22');
 
