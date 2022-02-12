@@ -9,10 +9,11 @@ Products = Blueprint('Products', __name__, static_folder='static', static_url_pa
 user = User('a', 'a', 'a', 'a','a')
 Donation = donation('a','a','a',0)
 
+
 # Routes
 @Products.route('/Products',methods=['GET', 'POST'])
 def index():
-    if session:
+    if session.get('user_name'):
         email = session['user_name']
         user_id = user.get_user_id(email)
         open_donations = Donation.open_donations(user_id)

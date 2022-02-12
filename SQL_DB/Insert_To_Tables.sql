@@ -10,6 +10,17 @@ VALUES ('Matan', '1995-09-19', 'Matan@gmail.com', '0529984465','345');
 INSERT INTO users (Name, BirthDate, Email, Phone_number, Password)
 VALUES ('Shiran', '1996-10-02', 'Shiran@gmail.com', '0547561465','456');
 
+INSERT INTO web_project_g8.users (User_id,Name, BirthDate ,Email,Phone_Number, Password)
+ VALUES ('6','Ariel','1985-08-03', 'ariel@gmail.com','0546645819','ariel');
+
+INSERT INTO web_project_g8.users (User_id,Name, BirthDate ,Email,Phone_Number, Password)
+ VALUES ('7','Eti','1980-03-03', 'eti@gmail.com','0522977826','eti1');
+
+INSERT INTO web_project_g8.users (User_id,Name, BirthDate ,Email,Phone_Number, Password)
+ VALUES ('8','Stav','1994-11-05', 'stav@gmail.com','0523565680','stav11');
+
+INSERT INTO web_project_g8.users (User_id,Name, BirthDate ,Email,Phone_Number, Password)
+ VALUES ('9','Amit','2000-08-14', 'amit@gmail.com','0546633819','amit14');
 
 INSERT INTO products (Name, Category, Price, Description,Photo)
 VALUES ('Food Basket', 'Food', '120', 'wine, rice, oil, sugar, flour, tuna, cans, pasta','../static/media/foodbasket.jpg');

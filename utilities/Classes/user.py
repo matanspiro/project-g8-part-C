@@ -15,8 +15,9 @@ class User:
         self.__password = Password
 
     def insert_user(self):
-        query = "INSERT INTO web_project_g8.users (Name, BirthDate ,Email,Phone_Number, Password) VALUES ('%s','%s','%s', '%s','%s')" % (self.__Name, self.__BirthDate, self.__Email, self.__Phone_number, self.__Password)
+        query = "INSERT INTO web_project_g8.users (Name, BirthDate ,Email,Phone_Number, Password) VALUES ('%s','%s','%s', '%s','%s')" % (self.__Name, self.__BirthDate, self.__Email, self.__PhoneNumber, self.__password)
         dbManager.commit(query)
+
 
     def get_name(self, Email, Password):
         query = "SELECT Name, Password FROM web_project_g8.users WHERE Email = '%s'" %(Email)
