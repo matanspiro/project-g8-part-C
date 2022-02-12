@@ -1,4 +1,5 @@
 create schema web_project_g8;
+
 use web_project_g8;
 
 DROP TABLE Users;
@@ -28,7 +29,7 @@ CREATE TABLE Organizations (
   Description varchar(500)
 );
 
-DROP TABLE donations;
+DROP TABLE Donations;
 CREATE TABLE Donations (
   Donation_id int auto_increment ,
   Product_id int,
@@ -43,7 +44,7 @@ CREATE TABLE Donations (
 );
 
 
-DROP TABLE credit_cards;
+DROP TABLE Credit_Cards;
 CREATE TABLE Credit_Cards (
   CC_Number varchar(25),
   User_id int,
@@ -56,7 +57,7 @@ CREATE TABLE Credit_Cards (
   constraint fk_users_CC foreign key (User_id) references users (User_id)
 );
 
-DROP Table web_project_g8.events;
+DROP Table Events;
 CREATE TABLE Events (
   Event_id int auto_increment primary key,
   Org_id int,
